@@ -55,12 +55,12 @@ namespace ProducerAndConsumer
         public void Stop()
         {
             _isStop = true;
-            foreach (var thread in _threads)
-            {
-                thread.Interrupt();
-            }
-            _repository.Clear();
-            _threads.Clear();
+            //foreach (var thread in _threads)
+            //{
+            //    thread.Interrupt();
+            //}
+            //_repository.Clear();
+            //_threads.Clear();
         }
     }
 }

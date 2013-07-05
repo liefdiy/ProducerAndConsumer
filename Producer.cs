@@ -36,12 +36,12 @@ namespace ProducerAndConsumer
         public void Stop()
         {
             _isStop = true;
-            foreach (var thread in _threads)
-            {
-                thread.Interrupt();
-            }
-            _threads.Clear();
-            _repository.Clear();
+            //foreach (var thread in _threads)
+            //{
+            //    thread.Interrupt();
+            //}
+            //_threads.Clear();
+            //_repository.Clear();
         }
 
         private void Run(object token)
@@ -124,11 +124,12 @@ namespace ProducerAndConsumer
             T obj;
             lock (this)
             {
+                obj = Products.Dequeue();
+
                 if (_OnRepositoryChanged != null)
                 {
                     _OnRepositoryChanged(Products.Count);
                 }
-                obj = Products.Dequeue();
             }
             empty.Release();
             return obj;

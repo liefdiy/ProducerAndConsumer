@@ -18,7 +18,7 @@ namespace ProducerAndConsumer
         {
             pbarRepository.Maximum = tbarRepository.Value;
 
-            repository = new Repository<string>(tbarProducer.Value);
+            repository = new Repository<string>(pbarRepository.Maximum);
             repository.OnRepositoryChanged += OnRepositoryChanged;
 
             producer = new Producer<string>(repository, tbarProducer.Value);
@@ -61,6 +61,12 @@ namespace ProducerAndConsumer
             {
                 producer.Stop();
             }
+        }
+
+        private void pbarRepository_MouseHover(object sender, System.EventArgs e)
+        {
+            string desc = string.Format("当前库存：{0}，最大库存：{1}，消费者总数：{2}，生产者总数：{3}", repository == null ? 0 : repository.Products.Count, pbarRepository.Maximum, tBarConsumer.Value, tbarProducer.Value);
+            tipRepository.SetToolTip(pbarRepository, desc);
         }
     }
 }

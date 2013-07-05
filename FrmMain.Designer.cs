@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pbarRepository = new System.Windows.Forms.ProgressBar();
             this.tBarConsumer = new System.Windows.Forms.TrackBar();
             this.tbarProducer = new System.Windows.Forms.TrackBar();
@@ -38,6 +39,7 @@
             this.btnStopProduce = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.tbarRepository = new System.Windows.Forms.TrackBar();
+            this.tipRepository = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tBarConsumer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbarProducer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbarRepository)).BeginInit();
@@ -50,6 +52,7 @@
             this.pbarRepository.Size = new System.Drawing.Size(332, 36);
             this.pbarRepository.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pbarRepository.TabIndex = 0;
+            this.pbarRepository.MouseHover += new System.EventHandler(this.pbarRepository_MouseHover);
             // 
             // tBarConsumer
             // 
@@ -95,7 +98,7 @@
             // 
             // btnStopConsume
             // 
-            this.btnStopConsume.Location = new System.Drawing.Point(141, 241);
+            this.btnStopConsume.Location = new System.Drawing.Point(138, 241);
             this.btnStopConsume.Name = "btnStopConsume";
             this.btnStopConsume.Size = new System.Drawing.Size(75, 44);
             this.btnStopConsume.TabIndex = 6;
@@ -105,7 +108,7 @@
             // 
             // btnStopProduce
             // 
-            this.btnStopProduce.Location = new System.Drawing.Point(272, 241);
+            this.btnStopProduce.Location = new System.Drawing.Point(270, 241);
             this.btnStopProduce.Name = "btnStopProduce";
             this.btnStopProduce.Size = new System.Drawing.Size(75, 44);
             this.btnStopProduce.TabIndex = 7;
@@ -167,6 +170,7 @@
         private System.Windows.Forms.Button btnStopProduce;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TrackBar tbarRepository;
+        private System.Windows.Forms.ToolTip tipRepository;
     }
 }
 
